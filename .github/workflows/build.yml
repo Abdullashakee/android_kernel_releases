@@ -92,9 +92,12 @@ jobs:
       - name: "🌟 Clone kernel source => (${{ env.KERNEL_REPO }})"
         run: |
           git clone --recursive --depth=1 -j $(nproc) https://github.com/Abdullashakee/kernel_xiaomi_vayu.git
-
+       
 
           echo "🤔 Clone kernel source => ($KERNEL_REPO)"
+          
+       - name: Create SkylineKernel directory
+         run: mkdir -p /home/runner/work/android_kernel_releases/android_kernel_releases/SkylineKernel
 
       - name: 🔢 Extract kernel version
         working-directory: ${{ env.KERNEL_NAME }}
